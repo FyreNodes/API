@@ -1,13 +1,17 @@
+import { Instance } from "@/Interfaces";
 import { FastifyReply, FastifyRequest } from "fastify";
+import Validator from "@/interfaces/Validator";
 
 export interface RouteInfo {
     url: string;
-    method: 'GET'|'POST';
-    private?: boolean;
+    json: boolean;
+    method: 'GET'|'POST'|'PATCH';
+    validation?: Validator[];
+    authenticated?: boolean;
 };
 
 export interface RouteRun {
-    (req: FastifyRequest, res: FastifyReply);
+    (app: Instance, req: FastifyRequest, res: FastifyReply);
 };
 
 export default interface Route {
