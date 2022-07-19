@@ -1,4 +1,3 @@
-
 export default async (type: 'id' | 'str', length: number) => {
 	let result: any = null;
 	switch (type) {
