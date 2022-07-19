@@ -7,8 +7,8 @@ import error from "@/models/error";
 export default async (router: Instance, options: FastifyPluginOptions, done: DoneFuncWithErrOrRes) => {
     router.all('*', async (req, res) => {
         const route = router.routes.get(`${req.url.split('?')[0]}.${req.method}`);
-        if (!route) return res.send({ message: 'Invalid route specified.' }).status(404);
-        if (req.method !== route.info.method) return res.send({ message: 'The specified route does not support this method.' }).status(405);
+        if (!route) return error(res, { code: 'ERR.ROUTE.NOTFOUND' });
+        if (req.method !== route.info.method) return error(res, { code: 'ERR.ROUTE.METHOD' });
         if (route.info.authenticated) {
             if (!req.headers.authorization) return error(res, { code: 'ERR.AUTH.UNDEFINED' });
             if (req.headers.authorization !== process.env.KEY) return error(res, { code: 'ERR.AUTH.INVALID' });
