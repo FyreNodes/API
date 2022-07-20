@@ -20,7 +20,7 @@ export default () => {
 
 	app.register(pointOfView, {
 		engine: { ejs: ejsEngine },
-		root: `${__dirname}/views`
+		root: `./src/views`
 	});
 
 	app.register(Router);
