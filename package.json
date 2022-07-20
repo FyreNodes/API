@@ -1,7 +1,7 @@
 {
   "name": "fyreapi",
   "version": "0.1.0",
-  "description": "FyreNodes private main api.",
+  "description": "Multipurpose API for FyreNodes and Fyre Software. Built on Fastify in TypeScript.",
   "main": "index.ts",
   "scripts": {
     "start": "yarn run build; yarn run prod",
@@ -35,7 +35,9 @@
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "fastify": "^4.0.3",
-    "figlet": "^1.5.2"
+    "figlet": "^1.5.2",
+    "mongodb": "^4.7.0"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "packageManager": "yarn@3.2.1"
 }
