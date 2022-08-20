@@ -14,7 +14,6 @@ export default async (router: Instance, options: FastifyPluginOptions, done: Don
 			if (req.headers.authorization !== process.env.KEY) return error(res, { code: 'ERR.AUTH.INVALID' });
 		}
 		if (route.info.json) res.header('Content-Type', 'application/json');
-		res.header('Access-Control-Allow-Origin', '*');
 		const validation = route.info.validation;
 		if (validation) {
 			if (!req.body) return error(res, { code: 'ERR.BODY.EMPTY' });
